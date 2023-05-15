@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     })
-    // store user data during session 
+    // Store user data 
     .then(dbUserData => {
     req.session.save(() => {
         req.session.user_id = dbUserData.id;
@@ -96,7 +96,7 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'No user with that username!'});
             return;
         }
-        // res.json({ user: dbUserData});
+
         // verify user
         const validPassword = dbUserData.checkPassword(req.body.password);
 
@@ -105,7 +105,7 @@ router.post('/login', (req, res) => {
             return;
         }
         req.session.save(() => {
-            // declare session variables
+            // Declare session variables
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
