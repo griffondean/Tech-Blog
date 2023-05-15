@@ -1,5 +1,18 @@
 # Tech-Blog
 
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+    
+
+## Table of Contents
+
+ * [Description](#description)
+ * [Installation](#installation)
+ * [Usage](#usage)
+ * [MIT](https://choosealicense.com/licenses/MIT)
+ * [Contributing](#contributing)
+ * [Tests](#tests)
+ * [Questions](#questions)
+
 ## User Story
 AS A developer who writes about tech
 I WANT a CMS-style blog site
