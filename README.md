@@ -8,7 +8,7 @@
  * [Description](#description)
  * [Installation](#installation)
  * [Usage](#usage)
- * [MIT](https://choosealicense.com/licenses/MIT)
+ * [License](https://choosealicense.com/licenses/MIT)
  * [Contributing](#contributing)
  * [Tests](#tests)
  * [Questions](#questions)
@@ -75,13 +75,14 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
   - Npm install all required dependencies
 
-  ## Usage
+## Usage
+
 - mySQL
 - Javascript
 - Node.js
 - MVC
 
-## MIT
+## License
 
 Text Editor is available under the MIT License.
 
