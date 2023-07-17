@@ -96,6 +96,6 @@ Fork the repo and create your branch from devlop. Test your code.
 
 - GitHub - [griffondean](https://github.com/griffondean/)
 - Linkedin - [Griffon Dean](https://www.linkedin.com/in/griffon-dean-433088111/)
-- Project Repository Link: https://github.com/griffondean/text-editor
+- Project Repository Link: https://github.com/griffondean/Tech-Blog
 
-[Back To Top](#text-editor)
+[Back To Top](#Tech-Blog)
