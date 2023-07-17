@@ -18,7 +18,7 @@ AS A developer who writes about tech
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
-## Acceptance Criteria
+## Description
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
 THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
@@ -52,3 +52,49 @@ WHEN I click on the logout option in the navigation
 THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
+
+## Installation
+
+- Use the follow command at your terminal, **git clone** (Create a working copy at your local repository):
+
+  ```
+  git clone git@github.com:griffondean/Tech-Blog.git
+  ```
+
+- After cloned the repository, create your own repository, copy the files to your repository and type in your terminal the follow commands.
+
+  ```
+  git status
+
+  git add -A
+
+  git commit -m "Message to commit."
+
+  git push or git push origin main
+  ```
+
+  - Npm install all required dependencies
+
+  ## Usage
+- mySQL
+- Javascript
+- Node.js
+- MVC
+
+## MIT
+
+Text Editor is available under the MIT License.
+
+## How to Contribute
+
+Contributions and ideas are welcome. Before submitting an issue, please take a moment to look over the contributing guidelines in https://www.contributor-covenant.org/ . Before submitting pull requests, ensure the following:
+
+Fork the repo and create your branch from devlop. Test your code.
+
+## Questions
+
+- GitHub - [griffondean](https://github.com/griffondean/)
+- Linkedin - [Griffon Dean](https://www.linkedin.com/in/griffon-dean-433088111/)
+- Project Repository Link: https://github.com/griffondean/text-editor
+
+[Back To Top](#text-editor)
