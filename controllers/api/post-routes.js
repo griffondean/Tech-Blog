@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Comment} = require('../../models');
-const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
+const sequelize = require('../../config/connection');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbPostData => res.json(dbPostData.reverse()))
+        // Catch error and console log
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -37,7 +38,7 @@ router.get('/', (req, res) => {
   
 });
 
-// GET a single post 
+// GET one post 
 router.get('/:id', (req, res) => {
     Post.findOne({
       where: {
@@ -70,13 +71,14 @@ router.get('/:id', (req, res) => {
         }
         res.json(dbPostData);
       })
+      // Catch error and console log
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
 
-// creating a post
+// Creating a post
 router.post('/', withAuth, (req, res) => {
     // create 1 post
     Post.create({ 
@@ -85,6 +87,7 @@ router.post('/', withAuth, (req, res) => {
         user_id: req.session.user_id
     })
         .then(dbPostData => res.json(dbPostData))
+        // Catch error and console log
         .catch(err => {
             console.log(err);
             res.status(500).json(err); 
@@ -93,7 +96,7 @@ router.post('/', withAuth, (req, res) => {
 
 
 
-// update a post title
+// Update post title
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
         title: req.body.title,
@@ -110,6 +113,7 @@ router.put('/:id', withAuth, (req, res) => {
         }
         res.json(dbPostData);
     })
+    // Catch error and console log
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -118,7 +122,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 
 
-// delete a post 
+// Delete post 
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
@@ -130,6 +134,7 @@ router.delete('/:id', withAuth, (req, res) => {
             return;
         }
         res.json(dbPostData);
+        // Catch error and console log
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);

@@ -6,11 +6,7 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
-        'id',
-        'title',
-        'content',
-        'created_at'
-      ],
+        'id', 'title', 'content', 'created_at'],
       include: [
         {
           model: Comment,
@@ -27,10 +23,10 @@ router.get('/', (req, res) => {
       ]
     })
       .then(dbPostData => {
-        // pass a single post object into the homepage template
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
       })
+      // Catch error and console log
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -39,7 +35,7 @@ router.get('/', (req, res) => {
 
 
 
-// redirecting users to homepage once they log in
+// redirects users to homepage after log in
 router.get('/login', (req, res) => {
     if(req.session.loggedIn) {
         res.redirect('/');
@@ -48,23 +44,19 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// redirecting users to sign in page once they sign up
+// redirects users to sign in page after sign up
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-//rendering one post to the single-post page
+// render one post 
 router.get('/post/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
       },
       attributes: [
-        'id',
-        'content',
-        'title',
-        'created_at'
-      ],
+        'id', 'content', 'title', 'created_at'],
       include: [
         {
           model: Comment,
@@ -85,34 +77,25 @@ router.get('/post/:id', (req, res) => {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-  
-        // serialize the data
         const post = dbPostData.get({ plain: true });
-  
-        // pass data to template
         console.log(post);
         res.render('single-post', { post, loggedIn: req.session.loggedIn});
-
-
       })
+      // Catch error and console log
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
 
-// redirecting users to see all their posts with comments
+// redirects users to see all their posts with comments
 router.get('/posts-comments', (req, res) => {
     Post.findOne({
         where: {
           id: req.params.id
         },
         attributes: [
-          'id',
-          'content',
-          'title',
-          'created_at'
-        ],
+          'id', 'content', 'title', 'created_at'],
         include: [
           {
             model: Comment,
@@ -133,13 +116,10 @@ router.get('/posts-comments', (req, res) => {
             res.status(404).json({ message: 'No post found with this id' });
             return;
           }
-    
-          // serialize the data
           const post = dbPostData.get({ plain: true });
-    
-          // pass data to template
           res.render('posts-comments', { post, loggedIn: req.session.loggedIn});
         })
+        // Catch error and console log
         .catch(err => {
           console.log(err);
           res.status(500).json(err);
